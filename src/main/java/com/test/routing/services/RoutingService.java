@@ -32,7 +32,7 @@ public class RoutingService
     @Autowired
     private CountryService countryService;
 
-    public Optional<List<String>> search( String start, String end )
+    public Optional<List<String>> search( final String start, final String end )
     {
         final var routes = new LinkedList<List<String>>();
         final var visited = new HashSet<String>();

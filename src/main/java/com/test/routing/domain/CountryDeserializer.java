@@ -12,8 +12,9 @@ import java.util.stream.StreamSupport;
 public class CountryDeserializer extends JsonDeserializer<Country>
 {
     @Override
-    public Country deserialize( JsonParser jsonParser,
-                                DeserializationContext deserializationContext )
+    public Country deserialize(
+        final JsonParser jsonParser,
+        final DeserializationContext deserializationContext )
         throws IOException
     {
         final JsonNode countryNode = jsonParser.getCodec().readTree( jsonParser );
