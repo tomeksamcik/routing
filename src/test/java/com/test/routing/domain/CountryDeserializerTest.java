@@ -20,10 +20,10 @@ import static org.hamcrest.Matchers.equalTo;
 @ExtendWith( SpringExtension.class )
 public class CountryDeserializerTest
 {
+    private final ObjectMapper mapper = new ObjectMapper();
+
     @Value( "classpath:country.json" )
     Resource resource;
-
-    private final ObjectMapper mapper = new ObjectMapper();
 
     @Test
     public void shouldDeserializeCountry() throws IOException

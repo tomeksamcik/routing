@@ -23,6 +23,7 @@ public class CountryServiceTest
 
         assertThat( countries.size(), equalTo( 250 ) );
         assertThat( countries.keySet(), hasItem( "POL" ) );
-        assertThat( countries.get( "POL" ).getBorders(), contains( "BLR", "CZE", "DEU", "LTU", "RUS", "SVK", "UKR" ) );
+        assertThat( countries.get( "POL" ).getBorders(),
+            contains( "BLR", "CZE", "DEU", "LTU", "RUS", "SVK", "UKR" ) );
     }
 }

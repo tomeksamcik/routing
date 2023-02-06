@@ -1,11 +1,10 @@
 package com.test.routing.domain;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-
-import java.util.List;
-
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Builder
