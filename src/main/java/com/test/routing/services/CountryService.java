@@ -16,7 +16,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Service
-public class CountryService
+class CountryService
 {
     private List<Country> countries = List.of();
 

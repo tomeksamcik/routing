@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class RoutingController
+class RoutingController
 {
     @Autowired
     private RoutingService routingService;
@@ -22,15 +22,18 @@ public class RoutingController
     public Route getRoute( @PathVariable String origin, @PathVariable String destination )
     {
         return routingService.search( origin, destination )
-            .map( c -> Route.builder().route( c ).build() ).orElseThrow(
-                () -> new RouteNotFoundException(
-                    String.format( "Route %s - %s has not been found", origin, destination ) ) );
+            .map( c -> Route.builder().route( c ).build() )
+            .orElseThrow( () -> new RouteNotFoundException(
+                String.format( "Route %s - %s has not been found", origin, destination ) ) );
     }
 
     @ExceptionHandler( RouteNotFoundException.class )
     public ResponseEntity<Error> handleRoutingNotFoundException( RouteNotFoundException ex )
     {
-        return ResponseEntity.status( HttpStatus.BAD_REQUEST )
-            .body( Error.builder().error( ex.getMessage() ).build() );
+        return ResponseEntity
+            .status( HttpStatus.BAD_REQUEST )
+            .body( Error.builder()
+                .error( ex.getMessage() )
+                .build() );
     }
 }
